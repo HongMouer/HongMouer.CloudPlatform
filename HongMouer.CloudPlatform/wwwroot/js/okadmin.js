@@ -253,76 +253,76 @@ layui.use(["element", "form", "layer", "okUtils", "okTab", "okLayer", "okContext
    /**
     * 系统公告
     */
-   $(document).on("click", "#notice", noticeFun);
-   !function () {
-      var notice = sessionStorage.getItem("notice");
-      if (notice != "true") {
-         noticeFun();
-      }
-   }();
+   //$(document).on("click", "#notice", noticeFun);
+   //!function () {
+   //   var notice = sessionStorage.getItem("notice");
+   //   if (notice != "true") {
+   //      noticeFun();
+   //   }
+   //}();
 
-   function noticeFun() {
-      var srcWidth = okUtils.getBodyWidth();
-      layer.open({
-         type: 0, title: "系统公告", btn: "我知道啦", btnAlign: 'c', content: okHoliday.getContent(),
-         yes: function (index) {
-            if (srcWidth > 800) {
-               layer.tips('公告跑到这里去啦', '#notice', {
-                  tips: [1, '#000'],
-                  time: 2000
-               });
-            }
-            sessionStorage.setItem("notice", "true");
-            layer.close(index);
-         },
-         cancel: function (index) {
-            if (srcWidth > 800) {
-               layer.tips('公告跑到这里去啦', '#notice', {
-                  tips: [1, '#000'],
-                  time: 2000
-               });
-            }
-         }
-      });
-   }
+   //function noticeFun() {
+   //   var srcWidth = okUtils.getBodyWidth();
+   //   layer.open({
+   //      type: 0, title: "系统公告", btn: "我知道啦", btnAlign: 'c', content: okHoliday.getContent(),
+   //      yes: function (index) {
+   //         if (srcWidth > 800) {
+   //            layer.tips('公告跑到这里去啦', '#notice', {
+   //               tips: [1, '#000'],
+   //               time: 2000
+   //            });
+   //         }
+   //         sessionStorage.setItem("notice", "true");
+   //         layer.close(index);
+   //      },
+   //      cancel: function (index) {
+   //         if (srcWidth > 800) {
+   //            layer.tips('公告跑到这里去啦', '#notice', {
+   //               tips: [1, '#000'],
+   //               time: 2000
+   //            });
+   //         }
+   //      }
+   //   });
+   //}
 
    /**
     * 捐赠作者
     */
-   $(".layui-footer button.donate").click(function () {
-      layer.tab({
-         area: ["330px", "350px"],
-         tab: [{
-            title: "支付宝",
-            content: "<img src='images/zfb.jpg' width='200' height='300' style='margin: 0 auto; display: block;'>"
-         }, {
-            title: "微信",
-            content: "<img src='images/wx.jpg' width='200' height='300' style='margin: 0 auto; display: block;'>"
-         }]
-      });
-   });
+   //$(".layui-footer button.donate").click(function () {
+   //   layer.tab({
+   //      area: ["330px", "350px"],
+   //      tab: [{
+   //         title: "支付宝",
+   //         content: "<img src='images/zfb.jpg' width='200' height='300' style='margin: 0 auto; display: block;'>"
+   //      }, {
+   //         title: "微信",
+   //         content: "<img src='images/wx.jpg' width='200' height='300' style='margin: 0 auto; display: block;'>"
+   //      }]
+   //   });
+   //});
 
    /**
     * QQ群交流
     */
-   $("body").on("click", ".layui-footer button.communication, #noticeQQ", function () {
-      layer.tab({
-         area: ["auto", "370px"],
-         tab: [{
-            title: "QQ群4",
-            content: "<img src='images/qq4.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
-         }, {
-            title: "QQ群3（已满）",
-            content: "<img src='images/qq3.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
-         }, {
-            title: "QQ群2（已满）",
-            content: "<img src='images/qq2.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
-         }, {
-            title: "QQ群1（已满）",
-            content: "<img src='images/qq1.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
-         }]
-      });
-   });
+   //$("body").on("click", ".layui-footer button.communication, #noticeQQ", function () {
+   //   layer.tab({
+   //      area: ["auto", "370px"],
+   //      tab: [{
+   //         title: "QQ群4",
+   //         content: "<img src='images/qq4.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
+   //      }, {
+   //         title: "QQ群3（已满）",
+   //         content: "<img src='images/qq3.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
+   //      }, {
+   //         title: "QQ群2（已满）",
+   //         content: "<img src='images/qq2.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
+   //      }, {
+   //         title: "QQ群1（已满）",
+   //         content: "<img src='images/qq1.png' width='200' height='300' style='margin: 0 auto; display: block;'/>"
+   //      }]
+   //   });
+   //});
 
    /**
     * 弹窗皮肤

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v2.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v2.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" asp-append-version="true" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/okadmin.css" asp-append-version="true">
     <link rel="stylesheet" href="~/lib/loading/okLoading.css"  asp-append-version="true"/>
     <script type="text/javascript" src="~/js/okconfig.js" asp-append-version="true"></script>
@@ -110,7 +110,7 @@
                 <!--左侧导航菜单-->
                 <ul id="navBar" class="layui-nav okadmin-nav okadmin-bg-20222A layui-nav-tree">
                     <li class="layui-nav-item layui-this">
-                        <a href="javascript:" lay-id="1" data-url="pages/console.html">
+                        <a href="javascript:" lay-id="1" data-url="~/Dashboard/Index">
                             <i is-close=false class="ok-icon">&#xe654;</i>
                             控制台
                         </a>
@@ -148,7 +148,7 @@
 
                 <div id="tabContent" class="layui-tab-content ok-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe src='pages/console.html' frameborder="0" scrolling="yes" width="100%"
+                        <iframe src='~/Dashboard/Index' frameborder="0" scrolling="yes" width="100%"
                                 height="100%"></iframe>
                     </div>
                 </div>
