@@ -15,20 +15,20 @@
     "children": [
       {
         "title": "用户列表",
-        "href": "pages/member/user.html",
+        "href": "/UserManage/Index",
         "fontFamily": "layui-icon",
         "icon": "&#xe62e;",
         "spread": false
       },
       {
         "title": "角色列表",
-        "href": "pages/member/role.html",
+        "href": "/RoleManage/Index",
         "icon": "&#xe62e;",
         "spread": false
       },
       {
         "title": "权限列表",
-        "href": "pages/member/permission.html",
+        "href": "/RightManage/Index",
         "icon": "&#xe62e;",
         "spread": false
       }
