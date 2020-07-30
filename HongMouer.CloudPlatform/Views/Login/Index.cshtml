@@ -4,111 +4,69 @@
 }
 
 <!DOCTYPE html>
-<html lang="zh-cn" class="page-fill">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>ok-admin v2.0 | 很赞的后台模版 - 登录</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="ok-admin v2.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-    <meta name="description" content="ok-admin v2.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/oksub.css" asp-append-version="true" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>首页 - 宏谋EHRCloud系统</title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
+    @*<meta name="keywords" content="LightYear,LightYearAdmin,光年,后台模板,后台管理系统,光年HTML模板">
+    <meta name="description" content="Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。">*@
+    <meta name="author" content="yinqi">
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/css/materialdesignicons.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/css/style.min.css" rel="stylesheet" asp-append-version="true">
 </head>
-<body class="page-fill">
-    <div class="page-fill" id="login">
-        <form class="layui-form">
-            <div class="login_face"><img src="~/images/logo.png" asp-append-version="true"></div>
-            <div class="layui-form-item input-item">
-                <label for="username">用户名</label>
-                <input type="text" lay-verify="required" name="username" placeholder="请输入账号" autocomplete="off" id="username" class="layui-input">
+
+<body>
+    <div class="row no-gutters bg-white vh-100">
+        <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" style="background-image: url(/images/login-bg-1.jpg); background-size: cover;">
+            <div class="d-flex vh-100">
+                <div class="p-5 align-self-end">
+                    <img src="images/logo.png" alt="...">
+                    <br><br><br>
+                            <p class="text-white">宏谋EHRCloud系统</p>
+                </div>
             </div>
-            <div class="layui-form-item input-item">
-                <label for="password">密码</label>
-                <input type="password" lay-verify="required|password" name="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input">
+
+        </div>
+
+        <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+            <div class="p-5">
+                <div class="text-center">
+                    <a href="index.html"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
+                </div>
+                <p class="text-center text-muted"><small>请使用您的账号登录系统</small></p>
+
+                <form action="#!" method="post">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" class="form-control" id="username" placeholder="请输入您的用户名">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="请输入您的密码">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="rememberme">
+                            <label class="custom-control-label not-user-select" for="rememberme">5天内自动登录</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="submit">立即登录</button>
+                    </div>
+                </form>
+                <p class="text-center text-muted mt-3">Copyright © 2020 <a href="http://www.hongmouer.com">宏谋EHRCloud系统</a>. All right reserved</p>
             </div>
-            <div class="layui-form-item input-item captcha-box">
-                <label for="captcha">验证码</label>
-                <input type="text" lay-verify="required|captcha" name="captcha" placeholder="请输入验证码" autocomplete="off" id="captcha" maxlength="4" class="layui-input">
-                <div class="img ok-none-select" id="captchaImg"></div>
-            </div>
-            <div class="layui-form-item">
-                <button class="layui-btn layui-block" lay-filter="login" lay-submit="">登录</button>
-            </div>
-            <div class="login-link">
-                <a href="register.html">注册</a>
-                <a href="forget.html">忘记密码?</a>
-            </div>
-        </form>
+        </div>
     </div>
-    <!--js逻辑-->
-    <script src="~/lib/layui/layui.js" asp-append-version="true"></script>
-    <script>
-        layui.use(["form", "okGVerify", "okUtils", "okLayer"], function () {
-            let form = layui.form;
-            let $ = layui.jquery;
-            let okGVerify = layui.okGVerify;
-            let okUtils = layui.okUtils;
-            let okLayer = layui.okLayer;
 
-            /**
-             * 初始化验证码
-             */
-            let verifyCode = new okGVerify("#captchaImg");
-
-            /**
-             * 数据校验
-             */
-            form.verify({
-                password: [/^[\S]{6,12}$/, "密码必须6到12位，且不能出现空格"],
-                captcha: function (val) {
-                    if (verifyCode.validate(val) != "true") {
-                        return verifyCode.validate(val)
-                    }
-                }
-            });
-
-            /**
-             * 表单提交
-             */
-            form.on("submit(login)", function (data) {
-                //okUtils.ajax("/login", "post", data.field, true).done(function (response) {
-                //    okLayer.greenTickMsg(response.msg, function () {
-                        window.location = "/Home/Index";
-                //    })
-                //}).fail(function (error) {
-                //    console.log(error)
-                //});
-                return false;
-            });
-
-            /**
-             * 表单input组件单击时
-             */
-            $("#login .input-item .layui-input").click(function (e) {
-                e.stopPropagation();
-                $(this).addClass("layui-input-focus").find(".layui-input").focus();
-            });
-
-            /**
-             * 表单input组件获取焦点时
-             */
-            $("#login .layui-form-item .layui-input").focus(function () {
-                $(this).parent().addClass("layui-input-focus");
-            });
-
-            /**
-             * 表单input组件失去焦点时
-             */
-            $("#login .layui-form-item .layui-input").blur(function () {
-                $(this).parent().removeClass("layui-input-focus");
-                if ($(this).val() != "") {
-                    $(this).parent().addClass("layui-input-active");
-                } else {
-                    $(this).parent().removeClass("layui-input-active");
-                }
-            })
-        });
-    </script>
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript">;</script>
 </body>
 </html>
 
