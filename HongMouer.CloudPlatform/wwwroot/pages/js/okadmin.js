@@ -1,4 +1,3 @@
-/^http(s*):\/\//.test(location.href) || alert('请先部署到 localhost 下再访问');
 
 var objOkTab = "";
 layui.use(["element", "form", "layer", "okUtils", "okTab", "okLayer", "okContextMenu", "okHoliday", "laydate"], function () {
@@ -250,41 +249,41 @@ layui.use(["element", "form", "layer", "okUtils", "okTab", "okLayer", "okContext
       });
    }
 
-   /**
-    * 系统公告
-    */
-   $(document).on("click", "#notice", noticeFun);
-   !function () {
-      var notice = sessionStorage.getItem("notice");
-      if (notice != "true") {
-         noticeFun();
-      }
-   }();
+   ///**
+   // * 系统公告
+   // */
+   //$(document).on("click", "#notice", noticeFun);
+   //!function () {
+   //   var notice = sessionStorage.getItem("notice");
+   //   if (notice != "true") {
+   //      noticeFun();
+   //   }
+   //}();
 
-   function noticeFun() {
-      var srcWidth = okUtils.getBodyWidth();
-      layer.open({
-         type: 0, title: "系统公告", btn: "我知道啦", btnAlign: 'c', content: okHoliday.getContent(),
-         yes: function (index) {
-            if (srcWidth > 800) {
-               layer.tips('公告跑到这里去啦', '#notice', {
-                  tips: [1, '#000'],
-                  time: 2000
-               });
-            }
-            sessionStorage.setItem("notice", "true");
-            layer.close(index);
-         },
-         cancel: function (index) {
-            if (srcWidth > 800) {
-               layer.tips('公告跑到这里去啦', '#notice', {
-                  tips: [1, '#000'],
-                  time: 2000
-               });
-            }
-         }
-      });
-   }
+   //function noticeFun() {
+   //   var srcWidth = okUtils.getBodyWidth();
+   //   layer.open({
+   //      type: 0, title: "系统公告", btn: "我知道啦", btnAlign: 'c', content: okHoliday.getContent(),
+   //      yes: function (index) {
+   //         if (srcWidth > 800) {
+   //            layer.tips('公告跑到这里去啦', '#notice', {
+   //               tips: [1, '#000'],
+   //               time: 2000
+   //            });
+   //         }
+   //         sessionStorage.setItem("notice", "true");
+   //         layer.close(index);
+   //      },
+   //      cancel: function (index) {
+   //         if (srcWidth > 800) {
+   //            layer.tips('公告跑到这里去啦', '#notice', {
+   //               tips: [1, '#000'],
+   //               time: 2000
+   //            });
+   //         }
+   //      }
+   //   });
+   //}
 
    /**
     * 捐赠作者

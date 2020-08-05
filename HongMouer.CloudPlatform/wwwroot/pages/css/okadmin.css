@@ -583,7 +583,7 @@
     position: absolute;
     top: 50px;
     right: 0;
-    bottom: 42px;
+    bottom: 1px;
     left: 220px;
     z-index: 1;
     overflow: hidden
