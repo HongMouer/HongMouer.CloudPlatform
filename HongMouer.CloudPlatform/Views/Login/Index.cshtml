@@ -8,24 +8,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>首页 - 宏谋EHRCloud系统</title>
+    <title>首页 - 光年(Light Year Admin V4)后台管理系统模板</title>
     <link rel="icon" href="favicon.ico" type="image/ico">
-    @*<meta name="keywords" content="LightYear,LightYearAdmin,光年,后台模板,后台管理系统,光年HTML模板">
-    <meta name="description" content="Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。">*@
+    <meta name="keywords" content="LightYear,LightYearAdmin,光年,后台模板,后台管理系统,光年HTML模板">
+    <meta name="description" content="Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。">
     <meta name="author" content="yinqi">
-    <link href="~/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
-    <link href="~/css/materialdesignicons.min.css" rel="stylesheet" asp-append-version="true">
-    <link href="~/css/style.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/login/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/login/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="~/login/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="row no-gutters bg-white vh-100">
-        <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" style="background-image: url(/images/login-bg-1.jpg); background-size: cover;">
+        <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block" style="background-image: url(/login/images/login-bg-1.jpg); background-size: cover;">
+
             <div class="d-flex vh-100">
                 <div class="p-5 align-self-end">
-                    <img src="images/logo.png" alt="...">
+                    <img src="~/login/images/logo.png" alt="...">
                     <br><br><br>
-                            <p class="text-white">宏谋EHRCloud系统</p>
+                    <p class="text-white">Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。</p>
                 </div>
             </div>
 
@@ -34,7 +35,7 @@
         <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
             <div class="p-5">
                 <div class="text-center">
-                    <a href="index.html"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
+                    <a href="index.html"> <img alt="light year admin" src="~/login/images/logo-sidebar.png"> </a>
                 </div>
                 <p class="text-center text-muted"><small>请使用您的账号登录系统</small></p>
 
@@ -57,16 +58,24 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">立即登录</button>
+                        <button class="btn btn-block btn-primary" type="button" id="btnOk">立即登录</button>
                     </div>
                 </form>
-                <p class="text-center text-muted mt-3">Copyright © 2020 <a href="http://www.hongmouer.com">宏谋EHRCloud系统</a>. All right reserved</p>
+                <p class="text-center text-muted mt-3">Copyright © 2020 <a href="http://lyear.itshubao.com">IT书包</a>. All right reserved</p>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/login/js/jquery.min.js"></script>
     <script type="text/javascript">;</script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+$("#btnOk").click(function(){
+
+   window.location.href="/Home/Index";
+})
+});
+    </script>
 </body>
 </html>
-
