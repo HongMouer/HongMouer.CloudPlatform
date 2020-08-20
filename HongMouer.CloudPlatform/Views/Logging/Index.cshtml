@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>系统设置</title>
+    <title>日志列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="~/pages/css/oksub.css" rel="stylesheet" asp-append-version="true" />
 </head>
@@ -54,7 +54,7 @@
                 size: "sm",
                 cols: [[
                     { type: "checkbox", fixed: "left" },
-                    { field: "id", title: "GUID", width: 280, sort: true },
+                    { field: "guid", title: "GUID", width: 280, sort: true },
                     { field: "title", title: "标题", width: 350 },
                     { field: "url", title: "链接", width: 250, templet: "#urlTpl" },
                     { field: "publisher", title: "发布者", width: 100 },

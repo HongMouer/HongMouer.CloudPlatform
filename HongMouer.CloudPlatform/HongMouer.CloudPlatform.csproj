@@ -9,7 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="HongMouer.Common" Version="2020.8.20.2326" />
+    <PackageReference Include="HongMouer.DataAnnotations" Version="2020.8.20.2326" />
+    <PackageReference Include="HongMouer.EHR.Models" Version="2020.8.20.2326" />
+    <PackageReference Include="HongMouer.EntityRelationalCore" Version="2020.8.19.2033" />
+    <PackageReference Include="HongMouer.RestClient" Version="2020.8.20.2326" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
 </Project>
