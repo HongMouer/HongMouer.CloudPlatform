@@ -14,6 +14,8 @@ namespace HongMouer.CloudPlatform
     {
         public static void Main(string[] args)
         {
+            var hostingEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             CreateHostBuilder(args).Build().Run();
         }

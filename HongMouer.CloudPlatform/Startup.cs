@@ -4,8 +4,14 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using HongMouer.CloudPlatform.Controllers;
 using HongMouer.Common;
+using HongMouer.Common.Utility;
+using HongMouer.EHR.Models;
+using HongMouer.EntityRelationalCore;
 using HongMouer.EntityRelationalCore.Repositories;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,8 +33,26 @@ namespace HongMouer.CloudPlatform
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddResponseCompression();
+
+            //DatabaseType.Oracle
             services.AddTransient<IRepository>(options => new OracleRepository("HongMouerConnection"));
+
             services.AddDenpendencyServices();
+            services.AddHealthChecks().AddCheck<HealthCheck>("DbCheck"); 
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                     .AddCookie(options =>
+                     {
+                         options.Cookie.Name = "Token";
+                         options.Cookie.HttpOnly = true;
+                         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                         options.LoginPath = "/Login/Login";
+                         options.LogoutPath = "/Login/Logout";
+                         options.SlidingExpiration = true;
+                         //options.DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"D:\sso\key"));
+                         options.TicketDataFormat = new TicketDataFormat(new  AesDataProtectorMiddleware());
+                         //TokenController.CookieName = options.Cookie.Name;
+                     });
 
             services.AddControllersWithViews().AddJsonOptions(options =>
             {
@@ -36,6 +60,8 @@ namespace HongMouer.CloudPlatform
                 options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +81,7 @@ namespace HongMouer.CloudPlatform
 
             app.UseRouting();
 
-            app.UsePerformanceLog();
+            app.UseSystemMonitor(app.ApplicationServices.GetService<IRepository>());
 
             app.UseAuthorization();
 
@@ -63,7 +89,8 @@ namespace HongMouer.CloudPlatform
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

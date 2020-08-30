@@ -23,7 +23,7 @@
                 <div class="p-5 align-self-end">
                     <img src="~/login/images/logo.png" alt="...">
                     <br><br><br>
-                            <p class="text-white">HongMouer.CloudPlatform</p>
+                    <p class="text-white">HongMouer.CloudPlatform</p>
                 </div>
             </div>
 
@@ -66,13 +66,28 @@
     <script type="text/javascript" src="~/login/js/jquery.min.js" asp-append-version="true"></script>
     <script type="text/javascript">;</script>
     <script type="text/javascript">
-    $(document).ready(function(){
+        $(document).ready(function () {
 
-$("#btnOk").click(function(){
-
-   window.location.href="/Home/Index";
-})
-});
+            $("#btnOk").click(function () {
+                $.ajax({
+                    type: 'Post',
+                    url: '/Login/login',
+                    data: {
+                        UserNum: $("#username").val(),
+                        UserPassword: $("#password").val(),
+                    },
+                    dataType: 'Json',
+                    success: function (ref) {
+                        if (ref.code > 0) {
+                            window.location.href = "/Home/Index?token=" + token;
+                        }
+                    },
+                    error: function (ref) {
+                        layer.msg(ref.msg);
+                    }
+                })
+            })
+        });
     </script>
 </body>
 </html>
