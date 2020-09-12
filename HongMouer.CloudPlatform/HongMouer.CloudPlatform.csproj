@@ -5,16 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Common\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HongMouer.Common" Version="2020.8.24.107" />
-    <PackageReference Include="HongMouer.DataAnnotations" Version="2020.8.24.107" />
-    <PackageReference Include="HongMouer.EHR.Models" Version="2020.8.24.107" />
+    <PackageReference Include="HongMouer.Common" Version="2020.9.12.2039" />
+    <PackageReference Include="HongMouer.DataAnnotations" Version="2020.9.12.2039" />
+    <PackageReference Include="HongMouer.EHR.Models" Version="2020.9.12.2039" />
     <PackageReference Include="HongMouer.EntityRelationalCore" Version="2020.8.25.48" />
-    <PackageReference Include="HongMouer.RestClient" Version="2020.8.24.107" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.7" />
+    <PackageReference Include="HongMouer.RestClient" Version="2020.9.12.2039" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 

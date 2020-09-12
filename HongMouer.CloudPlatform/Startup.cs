@@ -40,20 +40,6 @@ namespace HongMouer.CloudPlatform
             services.AddDenpendencyServices();
             services.AddHealthChecks().AddCheck<HealthCheck>("DbCheck"); 
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                     .AddCookie(options =>
-                     {
-                         options.Cookie.Name = "Token";
-                         options.Cookie.HttpOnly = true;
-                         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-                         options.LoginPath = "/Login/Login";
-                         options.LogoutPath = "/Login/Logout";
-                         options.SlidingExpiration = true;
-                         //options.DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(@"D:\sso\key"));
-                         options.TicketDataFormat = new TicketDataFormat(new  AesDataProtectorMiddleware());
-                         //TokenController.CookieName = options.Cookie.Name;
-                     });
-
             services.AddControllersWithViews().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.Converters.Add(new DateTimeFormatMiddleware());

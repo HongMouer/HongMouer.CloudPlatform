@@ -69,21 +69,27 @@
         $(document).ready(function () {
 
             $("#btnOk").click(function () {
+                var user = new Object();
+                user.username = "123";
+                user.userpwd = "456";
+                user.reurl = "http://www.baidu.com";
+
+                //{ "username": "123", "userpwd": "456","reurl":"http://www.baidu.com" }
                 $.ajax({
-                    type: 'Post',
-                    url: '/Login/login',
+                    type: "POST",
+                    url: "/Account/Login",
+                    dataType: 'JSON',
                     data: {
-                        UserNum: $("#username").val(),
-                        UserPassword: $("#password").val(),
+                        users: user
                     },
-                    dataType: 'Json',
-                    success: function (ref) {
-                        if (ref.code > 0) {
-                            window.location.href = "/Home/Index?token=" + token;
-                        }
+                    success: function (result) {
+                        if (result.status)
+                        window.location.href = "/Home/Index?token=" + token;
+                        console.log(result);
                     },
-                    error: function (ref) {
-                        layer.msg(ref.msg);
+                    error: function (e) {
+                        console.log(e.status);
+                        console.log(e.responseText);
                     }
                 })
             })
